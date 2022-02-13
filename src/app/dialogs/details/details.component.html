@@ -1,0 +1,61 @@
+<div class="row main-container">
+    <div class="col-md-5 mt-4">
+        <div class="col-md-12 text-center">
+            <img src="./../../../assets/images/Poké_Ball_icon.svg" alt="{{data.name}}" width="25" class="d-inline">
+            <h1 mat-dialog-title class="d-inline"> {{data.name}}</h1>
+        </div>
+        <div class="col-md-12 text-center">
+            <img [src]="data.sprites.front_default" alt="{{data.name}}" width="200">
+        </div>
+        <div class="row text-center pokemonImage">
+            <div class="col-md-4 col-sm-12">
+                <h3><span class="badge badge-light">experiencia: {{data.base_experience}} </span></h3>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h3><span class="badge badge-light">altura: {{data.height}}</span></h3>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h3><span class="badge badge-light">peso: {{data.weight}}</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 mt-4 info-container">
+        <div class="col-md-12">
+            <h1 mat-dialog-title class="text-center"> Estadisticas </h1>
+        </div>
+
+
+        <!-- Estadisticas -->
+        <div class="col-md-12">
+
+
+            <div class="row col-md-12" *ngFor="let stats of pokemonStats">
+                <div class="col-md-5">
+                    {{stats.stat.name}}
+                </div>
+                <div class="col-md-2">
+                    {{stats.base_stat}}
+                </div>
+                <div class="col-md-5 mt-2">
+                    <mat-progress-bar mode="determinate" value="{{stats.base_stat}}"></mat-progress-bar>
+                </div>
+
+
+
+            </div>
+
+            <!-- Tipo -->
+            <div class="col-md-12 mt-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 mat-dialog-title class="text-center"> Tipo </h1>
+                    </div>
+                    <div class="col-md-4 mt-2" *ngFor="let tipo of pokemonTypes">
+                        <h3><span class="badge badge-light">{{tipo.type.name}}</span></h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

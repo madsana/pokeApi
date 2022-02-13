@@ -1,0 +1,39 @@
+<div class="container pt-3 my-3 animated fadeInRight mainDiv">
+
+    <div class="col-md-12 mb-3 text-right">
+        <mat-icon class="contactMail" (click)="openUserInfo()" matTooltip="Contacto"> contact_mail</mat-icon>
+    </div>
+    <div class="row">
+        <div class="col-md-2 mb-3"></div>
+        <div class="col-md-4 mb-3">
+            <h1 mat-dialog-title class="d-inline"> PokeApi - Test </h1>
+        </div>
+        <div class="col-md-4 mb-3">
+            <input class="form-control" type="text" name="search" [(ngModel)]="term" autocomplete="off"
+                placeholder="Buscar pokemon">
+        </div>
+        <div class="col-md-2 mb-3"></div>
+    </div>
+    <div class="col-md-12 row mt-3 justify-content-md-center">
+        <div class="col-md-3 mb-2 ml-2 card pokemon-card animated fadeIn fast" (click)="openModal(pokemon)"
+            matTooltip="{{pokemon.name}}"
+            *ngFor="let pokemon of pokemonData | orderBy:'order':false | filter:term; let iLine = index">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}" width="150">
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 mb-3 text-center">
+                    <h2>
+                        <img src="./../../../assets/images/Poké_Ball_icon.svg" alt="{{pokemon.name}}" width="25"
+                            class="d-inline">
+                        {{pokemon.name}} <span class="badge badge-secondary">{{pokemon.order}}</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <mat-paginator [length]="151" [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">">
+    </mat-paginator>
+
+</div>
